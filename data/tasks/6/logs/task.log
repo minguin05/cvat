@@ -1,0 +1,6 @@
+[2021-10-12 01:09:30,197] INFO cvat.server.task_6: get repository request
+[2021-10-12 01:50:35,740] INFO cvat.server.task_6: get repository request
+[2021-10-12 01:51:22,620] INFO cvat.server.task_6: get repository request
+[2021-10-12 03:00:15,423] INFO cvat.server.task_6: get repository request
+[2021-10-12 05:27:25,252] INFO cvat.server.task_6: The task '2021.10.06_CASE1_L036_최순규_3' is exported as 'COCO 1.0' at '/home/kimsu/cvat/data/tasks/6/export_cache/annotations_coco-10.ZIP' and available for downloading for the next 10:00:00. Export cache cleaning job is enqueued, id '232c9f79-54d1-4065-ab26-fbe1075c2523'
+[2021-10-14 01:22:28,223] INFO cvat.server.task_6: get repository request

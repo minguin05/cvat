@@ -1,0 +1,8 @@
+{"job_id":2,"task_id":2,"client_id":484540,"name":"Load job","time":"2021-10-07T06:04:51.819000Z","payload":{"duration":846,"frame count":1,"track count":0,"object count":0,"box count":0,"polygon count":0,"polyline count":0,"points count":0,"cuboids count":0,"tag count":0},"is_active":true,"username":"kimsu"}
+{"job_id":2,"task_id":2,"client_id":484540,"name":"Fit image","time":"2021-10-07T06:04:52.675000Z","payload":{},"is_active":true,"username":"kimsu"}
+{"job_id":2,"task_id":2,"client_id":484540,"name":"Draw object","time":"2021-10-07T06:05:17.324000Z","payload":{"count":1,"duration":4504},"is_active":true,"username":"kimsu"}
+{"job_id":2,"task_id":2,"client_id":484540,"name":"Save job","time":"2021-10-07T06:06:06.806000Z","payload":{"duration":491},"is_active":true,"username":"kimsu"}
+{"job_id":2,"task_id":2,"client_id":484540,"name":"Send task info","time":"2021-10-07T06:06:07.298000Z","payload":{"frame count":1,"track count":1,"object count":1,"box count":1,"polygon count":0,"polyline count":0,"points count":0,"cuboids count":0,"tag count":0},"is_active":true,"username":"kimsu"}
+{"job_id":2,"task_id":2,"client_id":484540,"name":"Send user activity","time":"2021-10-07T06:06:07.298000Z","payload":{"working_time":75448},"is_active":true,"username":"kimsu"}
+{"job_id":2,"task_id":2,"client_id":549465,"name":"Load job","time":"2021-10-08T05:40:59.642000Z","payload":{"duration":2269,"frame count":1,"track count":1,"object count":1,"box count":1,"polygon count":0,"polyline count":0,"points count":0,"cuboids count":0,"tag count":0},"is_active":true,"username":"kimsu"}
+{"job_id":2,"task_id":2,"client_id":549465,"name":"Fit image","time":"2021-10-08T05:41:01.935000Z","payload":{},"is_active":true,"username":"kimsu"}

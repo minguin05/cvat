@@ -1,0 +1,9 @@
+[2021-10-07 06:03:42,333] INFO cvat.server.task_2: get repository request
+[2021-10-07 07:34:28,146] INFO cvat.server.task_2: get repository request
+[2021-10-07 07:34:44,609] INFO cvat.server.task_2: get repository request
+[2021-10-08 05:12:21,068] INFO cvat.server.task_2: The task '2021.10.06_CASE1_L056_정재은_3' is exported as 'COCO 1.0' at '/home/kimsu/cvat/data/tasks/2/export_cache/annotations_coco-10.ZIP' and available for downloading for the next 10:00:00. Export cache cleaning job is enqueued, id 'e8a63803-3b90-4071-b2bd-9ece31e35edb'
+[2021-10-08 05:40:56,906] INFO cvat.server.task_2: get repository request
+[2021-10-08 05:41:08,567] INFO cvat.server.task_2: get repository request
+[2021-10-12 01:04:35,659] INFO cvat.server.task_2: Export cache file '/home/kimsu/cvat/data/tasks/2/export_cache/annotations_coco-10.ZIP' successfully removed
+[2021-10-13 09:51:52,424] INFO cvat.server.task_2: The task '2021.10.06_CASE1_L056_정재은_3' is exported as 'COCO 1.0' at '/home/kimsu/cvat/data/tasks/2/export_cache/annotations_coco-10.ZIP' and available for downloading for the next 10:00:00. Export cache cleaning job is enqueued, id '2fa9d295-bb50-45f2-aee8-8e0bbdcadc44'
+[2021-10-14 01:04:50,689] INFO cvat.server.task_2: Export cache file '/home/kimsu/cvat/data/tasks/2/export_cache/annotations_coco-10.ZIP' successfully removed
