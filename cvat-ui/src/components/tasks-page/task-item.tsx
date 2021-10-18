@@ -12,7 +12,7 @@ import Icon from '@ant-design/icons';
 import Dropdown from 'antd/lib/dropdown';
 import Progress from 'antd/lib/progress';
 import moment from 'moment';
-import ExportModal from 'components/export-dataset/export-dataset-modal';
+import ExportOnce from 'components/export-once/export-once';
 
 import ActionsMenuContainer from 'containers/actions-menu/actions-menu';
 import { ActiveInference } from 'reducers/interfaces';
@@ -66,7 +66,8 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
                 <Text strong className='cvat-item-task-name'>
                     {name}
                 </Text>
-                {/* <ExportModal dataID={taskInstance.id} dataName={taskInstance.name} idx={index} /> */}
+                {/* <ExportOnce dataID={taskInstance.id} dataName={taskInstance.name} idx={index} /> */}
+                {/* <ExportOnce dataName={taskInstance.name} /> */}
                 <br />
                 {owner && (
                     <>

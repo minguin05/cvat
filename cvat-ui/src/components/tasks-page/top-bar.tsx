@@ -8,11 +8,10 @@ import { Row, Col } from 'antd/lib/grid';
 import { DownloadOutlined, PlusOutlined, UploadOutlined, LoadingOutlined } from '@ant-design/icons';
 import Button from 'antd/lib/button';
 import Text from 'antd/lib/typography/Text';
-import Modal from 'antd/lib/modal';
 import Upload from 'antd/lib/upload';
 import SearchField from 'components/search-field/search-field';
 import { TasksQuery } from 'reducers/interfaces';
-import ExportActions from 'actions/export-actions';
+import ExportdatsetOnce from 'components/export-once/export-once';
 
 interface VisibleTopBarProps {
     onSearch: (query: TasksQuery) => void;
@@ -28,6 +27,8 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
 
     const history = useHistory();
 
+
+
     return (
         <Row className='cvat-tasks-page-top-bar' justify='center' align='middle'>
             <Col md={22} lg={18} xl={16} xxl={14}>
@@ -40,28 +41,17 @@ export default function TopBarComponent(props: VisibleTopBarProps): JSX.Element 
                             date : 2021.10.07
                             comments : insert button to export task annotaion at the same time
                         */}
-                        <Button
+                        {/* <Button
                             size='large'
                             // id='cvat-import-task-button'
                             type='primary'
                             disabled={taskImporting}
                             icon={<DownloadOutlined />}
-                            onClick={(): void => history.push('/emport')}
+                            onClick={(): void => alert('test')}
                         >
                             Export All Task
-                        </Button>
-                        <Modal
-                            // visible={}
-                            // onCancel={onCancel}
-                            // onOk={submitMove}
-                            isOpen={true},
-                            title={(
-                                <span>
-                                    test
-                                </span>
-                            )}
-                            className='cvat-task-move-modal'
-                        />
+                        </Button> */}
+                        <ExportdatsetOnce />
                     </Col>
                     <Col>
                         <Row gutter={8}>

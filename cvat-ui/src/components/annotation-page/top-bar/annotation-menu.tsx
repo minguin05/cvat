@@ -153,7 +153,6 @@ export default function AnnotationMenuComponent(props: Props): JSX.Element {
                 taskDimension: jobInstance.task.dimension,
             })}
             <Menu.Item key={Actions.EXPORT_TASK_DATASET}>Export task dataset</Menu.Item>
-            <Menu.Item key={Actions.EXPORT_TASK_DATASET_ONCE}>Export task dataset once</Menu.Item>
             <Menu.Item key={Actions.REMOVE_ANNO}>Remove annotations</Menu.Item>
             <Menu.Item key={Actions.OPEN_TASK}>
                 <a href={`/tasks/${taskID}`} onClick={(e: React.MouseEvent) => e.preventDefault()}>

@@ -56,8 +56,6 @@ export const exportDatasetOneAsync = (
 ): ThunkAction => async (dispatch) => {
     dispatch(exportActions.exportDataset(instance, format));
 
-    console.log('exportDatasetOneAsync');
-
     try {
         const url = await instance.annotations.exportDataset(format, saveImages, name);
         const downloadAnchor = window.document.getElementById('downloadAnchor') as HTMLAnchorElement;

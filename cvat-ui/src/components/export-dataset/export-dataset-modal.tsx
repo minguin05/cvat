@@ -14,7 +14,6 @@ import Checkbox from 'antd/lib/checkbox';
 import Input from 'antd/lib/input';
 import Form from 'antd/lib/form';
 
-
 import { CombinedState } from 'reducers/interfaces';
 import { exportActions, exportDatasetAsync } from 'actions/export-actions';
 import getCore from 'cvat-core-wrapper';
@@ -32,15 +31,7 @@ type FormValues = {
     customName: string | undefined;
 };
 
-export interface ExportProps {
-    dataName : any;
-    dataID : any;
-    idx : any;
-    numTask: number;
-    task : any[];
-}
-
-function ExportDatasetModal(props: ExportProps): JSX.Element {
+function ExportDatasetModal(): JSX.Element {
     const [instanceType, setInstanceType] = useState('');
     const [activities, setActivities] = useState<string[]>([]);
     const [form] = Form.useForm();
@@ -51,27 +42,6 @@ function ExportDatasetModal(props: ExportProps): JSX.Element {
     const { tasks: taskExportActivities, projects: projectExportActivities } = useSelector(
         (state: CombinedState) => state.export,
     );
-    const { task } = props;
-
-    const testArray:any[] = [];
-
-    if (typeof task !== 'undefined') {
-        for (let i = 0; i < 10; i++) {
-            testArray.push(JSON.stringify(JSON.parse(JSON.stringify(task))[i]));
-        }
-    }
-    const minguinArray:any[] = [];
-    // const idx = testArray[0].indexOf('preview');
-
-    // const testName = testArray[0].substring(0, idx);
-    if (typeof testArray[0] !== 'undefined') {
-        for (let i = 0; i < 10; i++) {
-            minguinArray.push(JSON.stringify(JSON.parse(testArray[i]).instance));
-        }
-
-        // eslint-disable-next-line no-eval
-    }
-    console.log(`testName >>> ${JSON.stringify(instance)} / testNameID >>>> ${instance?.name}`);
 
     /*
         author : minguin
@@ -118,18 +88,15 @@ function ExportDatasetModal(props: ExportProps): JSX.Element {
                 comments : export 시 파일명을 사용자가 직접 지정하지 않았을 경우 값을 임의로 지정하는 방법 [날짜_ID_작업번호]
                 Original source : (#94) values.customName ? `${values.customName}.zip` : ''
             */
-            // console.log(`instance >>>> ${JSON.stringify(instance)}`);
 
-            for (let i = 0; i < 10; i++) {
-                dispatch(
-                    exportDatasetAsync(
-                        minguinArray[i],
-                        values.selectedFormat as string,
-                        values.customName ? `${values.customName}.zip` : `${filename}`,
-                        values.saveImages,
-                    ),
-                );
-            }
+            dispatch(
+                exportDatasetAsync(
+                    instance,
+                    values.selectedFormat as string,
+                    values.customName ? `${values.customName}.zip` : `${filename}`,
+                    values.saveImages,
+                ),
+            );
 
             closeModal();
             Notification.info({

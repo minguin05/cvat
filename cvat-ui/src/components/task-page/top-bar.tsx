@@ -13,6 +13,8 @@ import Text from 'antd/lib/typography/Text';
 import ActionsMenuContainer from 'containers/actions-menu/actions-menu';
 import { MenuIcon } from 'icons';
 
+import { exportActions } from 'actions/export-actions';
+
 interface DetailsComponentProps {
     taskInstance: any;
 }

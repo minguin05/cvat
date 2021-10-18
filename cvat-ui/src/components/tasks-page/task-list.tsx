@@ -9,6 +9,7 @@ import Pagination from 'antd/lib/pagination';
 import ModelRunnerModal from 'components/model-runner-modal/model-runner-dialog';
 import MoveTaskModal from 'components/move-task-modal/move-task-modal';
 import TaskItem from 'containers/tasks-page/task-item';
+import ExportdatasetOnce from 'components/export-once/export-once';
 
 /*
     author : minguin
@@ -45,6 +46,7 @@ export default function TaskListComponent(props: ContentListProps): JSX.Element 
                     {taskViews}
                 </Col>
             </Row>
+            <ExportdatasetOnce taskInstace={taskViews}/>
             <Row justify='center' align='middle'>
                 <Col md={22} lg={18} xl={16} xxl={14}>
                     <Pagination
