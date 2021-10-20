@@ -3,15 +3,14 @@
 // SPDX-License-Identifier: MIT
 
 import './styles.scss';
-import React, { useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import Modal from 'antd/lib/modal';
 import Button from 'antd/lib/button';
-import { DownloadOutlined, LoadingOutlined } from '@ant-design/icons';
-import Text from 'antd/lib/typography/Text';
-import Select from 'antd/lib/select';
-import Checkbox from 'antd/lib/checkbox';
-import Input from 'antd/lib/input';
-import Form from 'antd/lib/form';
+import DownloadOutlined from '@ant-design/icons';
+import Notification from 'antd/lib/notification';
+import { useDispatch } from 'react-redux';
+import { matches } from 'lodash';
+import { testExportDatasetAsync } from 'actions/export-actions';
 
 /*
     author : minguin
@@ -19,16 +18,9 @@ import Form from 'antd/lib/form';
     comments : task 클릭 후 export 시 출력되는 모달창
 */
 
-export interface ExportProps {
-    task : any[];
-    tasksnum : any;
-    dataName : any;
-    taskInstace : any;
-}
-
-function ExportDatasetModal(props: ExportProps): JSX.Element {
-    const { task, tasksnum, taskInstace } = props;
+function ExportDatasetModalOnce(): JSX.Element {
     const testArray:any[] = [];
+    const dispatch = useDispatch();
 
     const [isModalVisible, setIsModalVisible] = useState(false);
 
@@ -36,42 +28,62 @@ function ExportDatasetModal(props: ExportProps): JSX.Element {
         setIsModalVisible(true);
     };
 
-    const handleOk = () => {
-        setIsModalVisible(false);
-    };
+    const handleExport = useCallback(
+        (): void => {
+            dispatch(
+                testExportDatasetAsync(),
+            );
+            Notification.info({
+                message: 'Dataset export started',
+                description:
+                    'Download will start automaticly as soon as the dataset is ready.',
+                className: 'cvat-notification-notice-export-task-start',
+            });
+        },
+        [],
+    );
 
     const handleCancel = () => {
         setIsModalVisible(false);
     };
-
-    // console.log(`testArrayOnce >>> ${JSON.stringify(testArray[0].instance)}`);
-
-
-    if (typeof task !== 'undefined') {
-        for (let i = 0; i < tasksnum; i++) {
-            // testArray.push((JSON.parse(JSON.stringify(task))[i]));
-            testArray.push(task[i].instance);
-        }
+    let button = null;
+    if (window.sessionStorage.getItem('userName') === 'kimsu') {
+        button = (
+            <Button
+                    size='large'
+                    type='primary'
+            icon={<DownloadOutlined />}
+            onClick={showModal}
+            >
+    Export Once
+            </Button>
+);
     }
 
-    console.log(`testArrayOnce >>> ${JSON.stringify(testArray[0])}`);
-    console.log(`testArrayOnce Length >>> ${testArray.length}`);
-    console.log(`taskInstace >>> ${taskInstace}`);
+    // console.log(`testArrayOnce >>> ${JSON.stringify(testArray[0].instance)}`);
+    const taskID = window.localStorage.getItem('taskID')?.split(',');
 
-    // const listItem = testArray.map((instance) =>
-    //     <li>{JSON.stringify(instance)}</li>);
+    if (typeof taskID !== 'undefined') {
+        for (let i = 0; i < taskID.length; i++) {
+            testArray.push(window.localStorage.getItem(`${taskID[i]}test`));
+        }
+    }
+    const listItem = testArray.map((instance) =>
+        <li>{JSON.stringify(instance)}</li>);
 
     return (
         <>
-            <Button type='primary' onClick={showModal}>
-                Open Modal
-            </Button>
-            <Modal title='Basic Modal' visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
-                <p>Some contents...</p>
+            {button}
+            <Modal title='Basic Modal' visible={isModalVisible} onOk={handleExport} onCancel={handleCancel}>
+                <b>
+                    {' '}
+                    Total Num:
+                    {taskID?.length}
+                    {' '}
+                </b>
+                <p>{listItem}</p>
             </Modal>
         </>
     );
 }
-export default React.memo(ExportDatasetModal);
+export default React.memo(ExportDatasetModalOnce);

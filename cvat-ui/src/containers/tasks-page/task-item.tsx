@@ -42,6 +42,8 @@ function mapStateToProps(state: CombinedState, own: OwnProps): StateToProps {
     const { deletes } = state.tasks.activities;
     const id = own.taskID;
 
+    window.localStorage.setItem(`${id}test`, task.instance.name);
+
     return {
         hidden: state.tasks.hideEmpty && task.instance.jobs.length === 0,
         deleted: id in deletes ? deletes[id] === true : false,

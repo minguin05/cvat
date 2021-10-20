@@ -7,13 +7,9 @@ import { connect } from 'react-redux';
 
 import { TasksState, TasksQuery, CombinedState } from 'reducers/interfaces';
 
-// import ExportDataset from 'components/export-dataset/export-dataset-modal';
-
 import TasksListComponent from 'components/tasks-page/task-list';
 
 import { getTasksAsync } from 'actions/tasks-actions';
-
-import ExportOnce from 'components/export-once/export-once';
 
 interface StateToProps {
     tasks: TasksState;
@@ -53,15 +49,6 @@ function TasksListContainer(props: TasksListContainerProps): JSX.Element {
         (#55) JSON.stringify(JSON.parse(JSON.stringify(tasks.current))[0])
     */
 
-    const testArray:any[] = [];
-
-    for (let i = 0; i < tasks.count; i++) {
-        // testArray.push(JSON.parse(JSON.stringify(JSON.parse(JSON.stringify(tasks.current))[i])));
-        testArray.push(JSON.parse(JSON.stringify(tasks.current))[i]);
-    }
-
-    console.log(`testArrayLIST >>> ${testArray.length}`);
-
     return (
         <>
             <TasksListComponent
@@ -70,8 +57,6 @@ function TasksListContainer(props: TasksListContainerProps): JSX.Element {
                 currentPage={tasks.gettingQuery.page}
                 numberOfTasks={tasks.count}
             />
-
-
         </>
     );
 }

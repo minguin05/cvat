@@ -44,7 +44,6 @@ import showPlatformNotification, {
     showUnsupportedNotification,
 } from 'utils/platform-checker';
 import '../styles.scss';
-import ExportModalOnce from 'components/export-once/export-once';
 import EmailConfirmationPage from './email-confirmation-page/email-confirmed';
 
 /*
@@ -354,7 +353,6 @@ class CVATApplication extends React.PureComponent<CVATAppProps & RouteComponentP
                                         <Route exact path='/tasks/:id' component={TaskPageContainer} />
                                         <Route exact path='/tasks/:tid/jobs/:jid' component={AnnotationPageContainer} />
                                         <Route exact path='/cloudstorages' component={CloudStoragesPageComponent} />
-                                        <Route exact path='/emport' component={ExportModalOnce} />
                                         <Route
                                             exact
                                             path='/cloudstorages/create'
@@ -376,7 +374,6 @@ class CVATApplication extends React.PureComponent<CVATAppProps & RouteComponentP
                                 </GlobalHotKeys>
                                 {/* eslint-disable-next-line */}
                                 <ExportDatasetModal />
-                                <ExportDatasetModalOnce />
                                 {/* eslint-disable-next-line */}
                                 <a id='downloadAnchor' target='_blank' style={{ display: 'none' }} download />
                             </Layout.Content>

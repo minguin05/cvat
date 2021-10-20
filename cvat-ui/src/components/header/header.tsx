@@ -147,6 +147,9 @@ function HeaderContainer(props: Props): JSX.Element {
         isModelsPluginActive,
     } = props;
 
+    window.sessionStorage.setItem('userName', user.username);
+    console.log(`username storage >>>> ${window.sessionStorage.getItem('userName')}`);
+
     const {
         CHANGELOG_URL, LICENSE_URL, GITTER_URL, FORUM_URL, GITHUB_URL,
     } = consts;

@@ -12,12 +12,13 @@ import Icon from '@ant-design/icons';
 import Dropdown from 'antd/lib/dropdown';
 import Progress from 'antd/lib/progress';
 import moment from 'moment';
-import ExportOnce from 'components/export-once/export-once';
 
 import ActionsMenuContainer from 'containers/actions-menu/actions-menu';
 import { ActiveInference } from 'reducers/interfaces';
 import { MenuIcon } from 'icons';
+import ExportOnce from 'components/export-once/export-once';
 import AutomaticAnnotationProgress from './automatic-annotation-progress';
+import TaskListContainer from 'containers/tasks-page/tasks-list';
 
 export interface TaskItemProps {
     taskInstance: any;
@@ -49,9 +50,10 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
         const updated = moment(taskInstance.updatedDate).fromNow();
         const created = moment(taskInstance.createdDate).format('MMMM Do YYYY');
 
-        console.log(index);
         // Get and truncate a task name
         const name = `${taskInstance.name.substring(0, 70)}${taskInstance.name.length > 70 ? '...' : ''}`;
+
+
 
         /*
             작성자 : minguin
@@ -66,7 +68,6 @@ class TaskItemComponent extends React.PureComponent<TaskItemProps & RouteCompone
                 <Text strong className='cvat-item-task-name'>
                     {name}
                 </Text>
-                {/* <ExportOnce dataID={taskInstance.id} dataName={taskInstance.name} idx={index} /> */}
                 {/* <ExportOnce dataName={taskInstance.name} /> */}
                 <br />
                 {owner && (

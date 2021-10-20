@@ -9,7 +9,7 @@ import Pagination from 'antd/lib/pagination';
 import ModelRunnerModal from 'components/model-runner-modal/model-runner-dialog';
 import MoveTaskModal from 'components/move-task-modal/move-task-modal';
 import TaskItem from 'containers/tasks-page/task-item';
-import ExportdatasetOnce from 'components/export-once/export-once';
+import taskItem from './task-item';
 
 /*
     author : minguin
@@ -34,10 +34,18 @@ export default function TaskListComponent(props: ContentListProps): JSX.Element 
     } = props;
 
     const taskViews = currentTasksIndexes.map((tid, id): JSX.Element => <TaskItem idx={id} taskID={tid} key={tid} />);
-    // taskViews의 결과 중 taskID만 추출하여 호출
-    // for (let i = 0; i < numberOfTasks; i++) {
-    //     console.log(`taskInstance>>>${testId}`);
-    // }
+
+    const testArray:any = [];
+
+    for (let i = 0; i < taskViews.length; i++) {
+        if (taskViews[i].props !== null) {
+            testArray.push((taskViews[i].props.taskID));
+        }
+    }
+
+    if (typeof testArray !== 'undefined') {
+        window.localStorage.setItem('taskID', testArray);
+    }
 
     return (
         <>
@@ -46,7 +54,6 @@ export default function TaskListComponent(props: ContentListProps): JSX.Element 
                     {taskViews}
                 </Col>
             </Row>
-            <ExportdatasetOnce taskInstace={taskViews}/>
             <Row justify='center' align='middle'>
                 <Col md={22} lg={18} xl={16} xxl={14}>
                     <Pagination

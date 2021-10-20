@@ -61,6 +61,10 @@ export default (state: ExportState = defaultState, action: ExportActions): Expor
                 (exporterName: string): boolean => exporterName !== format,
             );
 
+            // activities[13] = activities[13].filter(
+            //     (exporterName: string): boolean => exporterName !== format,
+            // );
+
             return {
                 ...state,
                 tasks: instance instanceof core.classes.Task ? activities : state.tasks,
