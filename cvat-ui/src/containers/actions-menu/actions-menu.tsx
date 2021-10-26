@@ -33,7 +33,6 @@ interface StateToProps {
 interface DispatchToProps {
     loadAnnotations: (taskInstance: any, loader: any, file: File) => void;
     showExportModal: (taskInstance: any) => void;
-    showExportOnceModal: (taskInstance: any) => void;
     deleteTask: (taskInstance: any) => void;
     openRunModelWindow: (taskInstance: any) => void;
     exportTask: (taskInstance: any) => void;
@@ -80,9 +79,6 @@ function mapDispatchToProps(dispatch: any): DispatchToProps {
         openMoveTaskToProjectWindow: (taskId: number): void => {
             dispatch(switchMoveTaskModalVisible(true, taskId));
         },
-        showExportOnceModal: (task: any): void => {
-            dispatch(exportActions.openExportModalOnce(task));
-        },
     };
 }
 
@@ -99,7 +95,6 @@ function ActionsMenuContainer(props: OwnProps & StateToProps & DispatchToProps):
         openRunModelWindow,
         exportTask,
         openMoveTaskToProjectWindow,
-        showExportOnceModal,
     } = props;
 
     // minguin
@@ -117,8 +112,6 @@ function ActionsMenuContainer(props: OwnProps & StateToProps & DispatchToProps):
             exportTask(taskInstance);
         } else if (action === Actions.MOVE_TASK_TO_PROJECT) {
             openMoveTaskToProjectWindow(taskInstance.id);
-        } else if (action === Actions.EXPORT_TASK_DATASET_ONCE) {
-            showExportOnceModal(taskInstance);
         }
     }
 

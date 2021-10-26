@@ -32,7 +32,6 @@ interface DispatchToProps {
     loadAnnotations(job: any, loader: any, file: File): void;
     showExportModal(task: any): void;
     removeAnnotations(sessionInstance: any): void;
-    showExportOnceModal: (taskInstance: any) => void;
     switchRequestReviewDialog(visible: boolean): void;
     switchSubmitReviewDialog(visible: boolean): void;
     setForceExitAnnotationFlag(forceExit: boolean): void;
@@ -89,10 +88,7 @@ function mapDispatchToProps(dispatch: any): DispatchToProps {
         },
         updateJob(jobInstance: any): void {
             dispatch(updateJobAsync(jobInstance));
-        },
-        showExportOnceModal: (task: any): void => {
-            dispatch(exportActions.openExportModalOnce(task));
-        },
+        }
     };
 }
 
@@ -143,8 +139,6 @@ function AnnotationMenuContainer(props: Props): JSX.Element {
             history.push(`/tasks/${jobInstance.task.id}`);
         } else if (action === Actions.OPEN_TASK) {
             history.push(`/tasks/${jobInstance.task.id}`);
-        } else if (action === Actions.EXPORT_TASK_DATASET_ONCE) {
-            showExportOnceModal(jobInstance.task);
         }
     };
 

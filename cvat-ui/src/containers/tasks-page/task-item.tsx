@@ -42,7 +42,7 @@ function mapStateToProps(state: CombinedState, own: OwnProps): StateToProps {
     const { deletes } = state.tasks.activities;
     const id = own.taskID;
 
-    window.localStorage.setItem(`${id}test`, task.instance.name);
+    window.localStorage.setItem(`${id}_item`, task.instance.name);
 
     return {
         hidden: state.tasks.hideEmpty && task.instance.jobs.length === 0,

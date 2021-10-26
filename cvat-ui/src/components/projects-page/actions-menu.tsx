@@ -34,16 +34,11 @@ export default function ProjectActionsMenuComponent(props: Props): JSX.Element {
             okText: 'Delete',
         });
     };
-    /*
-        author : minguin
-        Date : 2021.10.14
-        Comment : actions 메뉴 중 추가했던 modal 페이지 연결 확인하기 위해 수정
-        (#46) onClick={() => dispatch(exportActions.openExportModal(projectInstance))}
-    */
+    
     return (
         <Menu className='cvat-project-actions-menu'>
             <Menu.Item
-                onClick={() => dispatch(exportActions.openExportModalOnce(projectInstance))}
+                onClick={() => dispatch(exportActions.openExportModal(projectInstance))}
             >
                 Export project dataset
             </Menu.Item>
